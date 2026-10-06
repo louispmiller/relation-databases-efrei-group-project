@@ -1,3 +1,11 @@
+-- Retire les tables si elles existent
+DROP TABLE IF EXISTS Lignes_De_Commande;
+DROP TABLE IF EXISTS Commandes;
+DROP TABLE IF EXISTS Produits;
+DROP TABLE IF EXISTS Clients;
+DROP TYPE IF EXISTS statut;
+
+
 CREATE TABLE Clients ( -- Les clients
     client_id SERIAL PRIMARY KEY,
     nom VARCHAR(255),
@@ -34,5 +42,5 @@ CREATE TABLE Lignes_De_Commande ( -- Les Lignes de Commandes
     Produit_id INT REFERENCES Produits(Produit_id), -- 1:N
     Commande_id INT REFERENCES Commandes(Commande_id), -- 1:N
     quantite INT,
-    prix_unitaire_paye REAL,
+    prix_unitaire_paye REAL
 );
